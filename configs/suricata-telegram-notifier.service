@@ -1,0 +1,15 @@
+[Unit]
+Description=Suricata Telegram Notifier Service
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+KillMode=control-group
+RestartSec=3
+User=root
+ExecStart=$SERVICE_DIRECTORY/.venv/bin/python3 -m service
+WorkingDirectory=$SERVICE_DIRECTORY
+
+[Install]
+WantedBy=multi-user.target
